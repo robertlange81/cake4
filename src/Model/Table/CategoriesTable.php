@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Categories Model
  *
+ * @property \App\Model\Table\BlogPostsTable&\Cake\ORM\Association\HasMany $BlogPosts
+ *
  * @method \App\Model\Entity\Category newEmptyEntity()
  * @method \App\Model\Entity\Category newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Category[] newEntities(array $data, array $options = [])
@@ -44,6 +46,10 @@ class CategoriesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('BlogPosts', [
+            'foreignKey' => 'category_id',
+        ]);
     }
 
     /**

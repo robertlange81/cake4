@@ -35,6 +35,37 @@
                     <td><?= h($category->modified) ?></td>
                 </tr>
             </table>
+            <div class="related">
+                <h4><?= __('Related Blog Posts') ?></h4>
+                <?php if (!empty($category->blog_posts)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Created') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th><?= __('Category Id') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($category->blog_posts as $blogPosts) : ?>
+                        <tr>
+                            <td><?= h($blogPosts->id) ?></td>
+                            <td><?= h($blogPosts->name) ?></td>
+                            <td><?= h($blogPosts->created) ?></td>
+                            <td><?= h($blogPosts->modified) ?></td>
+                            <td><?= h($blogPosts->category_id) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'BlogPosts', 'action' => 'view', $blogPosts->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'BlogPosts', 'action' => 'edit', $blogPosts->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'BlogPosts', 'action' => 'delete', $blogPosts->id], ['confirm' => __('Are you sure you want to delete # {0}?', $blogPosts->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

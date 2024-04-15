@@ -18,10 +18,8 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        $categories = $this->paginate($this->Categories,
-            ['limit' => 1]
-        );
-        // set assoc. array
+        $categories = $this->paginate($this->Categories);
+
         $this->set(compact('categories'));
     }
 
@@ -35,7 +33,7 @@ class CategoriesController extends AppController
     public function view($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => [],
+            'contain' => ['BlogPosts'],
         ]);
 
         $this->set(compact('category'));
