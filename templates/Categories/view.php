@@ -45,7 +45,6 @@
                             <th><?= __('Name') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Category Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($category->blog_posts as $blogPosts) : ?>
@@ -54,7 +53,6 @@
                             <td><?= h($blogPosts->name) ?></td>
                             <td><?= h($blogPosts->created) ?></td>
                             <td><?= h($blogPosts->modified) ?></td>
-                            <td><?= h($blogPosts->category_id) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'BlogPosts', 'action' => 'view', $blogPosts->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'BlogPosts', 'action' => 'edit', $blogPosts->id]) ?>

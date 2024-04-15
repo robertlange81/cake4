@@ -18,7 +18,7 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        $categories = $this->paginate($this->Categories);
+        $categories = $this->paginate($this->Categories, ['limit' => 1]);
 
         $this->set(compact('categories'));
     }
@@ -56,7 +56,8 @@ class CategoriesController extends AppController
             }
             $this->Flash->error(__('The category could not be saved. Please, try again.'));
         }
-        $this->set(compact('category'));
+        $blogPosts = $this->Categories->BlogPosts->find('list', ['limit' => 200])->all();
+        $this->set(compact('category', 'blogPosts'));
     }
 
     /**
@@ -69,7 +70,7 @@ class CategoriesController extends AppController
     public function edit($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => [],
+            'contain' => ['BlogPosts'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $category = $this->Categories->patchEntity($category, $this->request->getData());
@@ -80,7 +81,8 @@ class CategoriesController extends AppController
             }
             $this->Flash->error(__('The category could not be saved. Please, try again.'));
         }
-        $this->set(compact('category'));
+        $blogPosts = $this->Categories->BlogPosts->find('list', ['limit' => 200])->all();
+        $this->set(compact('category', 'blogPosts'));
     }
 
     /**

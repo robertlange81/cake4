@@ -10,11 +10,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
- * @property int|null $category_id
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Category[] $categories
  */
 class BlogPost extends Entity
 {
@@ -31,7 +30,6 @@ class BlogPost extends Entity
         'name' => true,
         'created' => true,
         'modified' => true,
-        'category_id' => true,
-        'category' => true,
+        'categories' => true,
     ];
 }

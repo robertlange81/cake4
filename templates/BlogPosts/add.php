@@ -19,7 +19,7 @@
                 <legend><?= __('Add Blog Post') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('category_id', ['options' => $categories, 'empty' => true]);
+                    echo $this->Form->control('categories._ids', ['options' => $categories]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

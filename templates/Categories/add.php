@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Category $category
+ * @var \Cake\Collection\CollectionInterface|string[] $blogPosts
  */
 ?>
 <div class="row">
@@ -18,6 +19,7 @@
                 <legend><?= __('Add Category') ?></legend>
                 <?php
                     echo $this->Form->control('name');
+                    echo $this->Form->control('blog_posts._ids', ['options' => $blogPosts]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

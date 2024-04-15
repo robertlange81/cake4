@@ -21,9 +21,8 @@ class BlogPostsFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'created' => '2024-04-15 09:09:49',
-                'modified' => '2024-04-15 09:09:49',
-                'category_id' => 1,
+                'created' => '2024-04-15 11:48:13',
+                'modified' => '2024-04-15 11:48:13',
             ],
         ];
         parent::init();

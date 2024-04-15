@@ -15,7 +15,6 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('category_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -26,7 +25,6 @@
                     <td><?= h($blogPost->name) ?></td>
                     <td><?= h($blogPost->created) ?></td>
                     <td><?= h($blogPost->modified) ?></td>
-                    <td><?= $blogPost->has('category') ? $this->Html->link($blogPost->category->name, ['controller' => 'Categories', 'action' => 'view', $blogPost->category->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $blogPost->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blogPost->id]) ?>

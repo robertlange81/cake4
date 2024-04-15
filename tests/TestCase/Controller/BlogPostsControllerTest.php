@@ -24,6 +24,7 @@ class BlogPostsControllerTest extends TestCase
     protected $fixtures = [
         'app.BlogPosts',
         'app.Categories',
+        'app.BlogPostsCategories',
     ];
 
     /**
