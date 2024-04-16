@@ -23,8 +23,8 @@ class MetaFieldsFixture extends TestFixture
                 'meta_key' => 'Lorem ipsum dolor sit amet',
                 'meta_value' => 'Lorem ipsum dolor sit amet',
                 'blog_post_id' => 1,
-                'created' => '2024-04-15 12:13:03',
-                'modified' => '2024-04-15 12:13:03',
+                'created' => '2024-04-16 21:06:01',
+                'modified' => '2024-04-16 21:06:01',
             ],
         ];
         parent::init();

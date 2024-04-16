@@ -25,6 +25,7 @@ class BlogPostsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.BlogPosts',
+        'app.MetaFields',
         'app.Categories',
     ];
 

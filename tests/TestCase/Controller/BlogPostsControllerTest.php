@@ -23,6 +23,7 @@ class BlogPostsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.BlogPosts',
+        'app.MetaFields',
         'app.Categories',
         'app.BlogPostsCategories',
     ];

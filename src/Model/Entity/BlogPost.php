@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
+ * @property \App\Model\Entity\MetaField[] $meta_fields
  * @property \App\Model\Entity\Category[] $categories
  */
 class BlogPost extends Entity
@@ -30,6 +31,7 @@ class BlogPost extends Entity
         'name' => true,
         'created' => true,
         'modified' => true,
+        'meta_fields' => true,
         'categories' => true,
     ];
 }

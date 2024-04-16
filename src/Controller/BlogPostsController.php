@@ -33,7 +33,7 @@ class BlogPostsController extends AppController
     public function view($id = null)
     {
         $blogPost = $this->BlogPosts->get($id, [
-            'contain' => ['Categories'],
+            'contain' => ['Categories', 'MetaFields'],
         ]);
 
         $this->set(compact('blogPost'));
