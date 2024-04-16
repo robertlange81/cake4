@@ -68,9 +68,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 'action' => 'index'
             ]);
             ?>
-            <?= $this->Html->link('Blog Posts',
+            <?= $this->Html->link('Blog-Posts',
                 [
                     'controller' => 'BlogPosts',
+                    'action' => 'index'
+                ]);
+            ?>
+            <?= $this->Html->link('Meta-Fields',
+                [
+                    'controller' => 'MetaFields',
                     'action' => 'index'
                 ]);
             ?>
