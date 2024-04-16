@@ -79,6 +79,33 @@ class MetaFieldsTable extends Table
         return $validator;
     }
 
+
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationAddBlogPosts(Validator $validator): Validator
+    {
+        $validator
+            ->scalar('meta_key')
+            ->maxLength('meta_key', 255)
+            ->requirePresence('meta_key', 'create')
+            ->notEmptyString('meta_key');
+
+        $validator
+            ->scalar('meta_value')
+            ->minLength('meta_value', 2)
+            ->maxLength('meta_value', 255)
+            ->allowEmptyString('meta_value');
+
+        $validator
+            ->integer('blog_post_id')
+            ->notEmptyString('blog_post_id');
+
+        return $validator;
+    }
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

@@ -48,7 +48,14 @@ class BlogPostsController extends AppController
     {
         $blogPost = $this->BlogPosts->newEmptyEntity();
         if ($this->request->is('post')) {
-            $blogPost = $this->BlogPosts->patchEntity($blogPost, $this->request->getData());
+            $blogPost = $this->BlogPosts->patchEntity($blogPost, $this->request->getData(), [
+                    'associated' => [
+                        'MetaFields' => [
+                            'validate' => 'addBlogPosts'
+                        ]
+                    ]
+                ]
+            );
             if ($this->BlogPosts->save($blogPost)) {
                 $this->Flash->success(__('The blog post has been saved.'));
 
