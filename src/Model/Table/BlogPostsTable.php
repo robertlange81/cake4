@@ -7,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Composer\DependencyResolver\Rule;
 
 /**
  * BlogPosts Model
@@ -73,5 +74,18 @@ class BlogPostsTable extends Table
             ->notEmptyString('name');
 
         return $validator;
+    }
+
+    public function validationCustomName(Validator $validator)
+    {
+        return $validator;
+    }
+
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->validCount('categories', 1, '>=', 'Kategorie erforderlich!'));
+        $rules->add($rules->isUnique(['name']));
+
+        return $rules;
     }
 }

@@ -49,6 +49,7 @@ class BlogPostsController extends AppController
         $blogPost = $this->BlogPosts->newEmptyEntity();
         if ($this->request->is('post')) {
             $blogPost = $this->BlogPosts->patchEntity($blogPost, $this->request->getData(), [
+                    'validate' => 'customName',
                     'associated' => [
                         'MetaFields' => [
                             'validate' => 'addBlogPosts'

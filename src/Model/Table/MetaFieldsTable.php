@@ -72,6 +72,9 @@ class MetaFieldsTable extends Table
             ->maxLength('meta_value', 255)
             ->allowEmptyString('meta_value');
 
+        //$validator->date('start_date', ['d.m.Y']);
+        // $validator->urlWithProtocol('website');
+
         $validator
             ->integer('blog_post_id')
             ->notEmptyString('blog_post_id');
