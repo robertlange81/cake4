@@ -91,6 +91,10 @@ if (file_exists(CONFIG . 'app_local.php')) {
     Configure::load('app_local', 'default');
 }
 
+if (file_exists(CONFIG . 'custom_configs' . DS . 'robert.php')) {
+    Configure::load('custom_configs/robert', 'default');
+}
+
 /*
  * When debug = true the metadata cache should only last
  * for a short time.

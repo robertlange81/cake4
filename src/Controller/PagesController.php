@@ -45,6 +45,8 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+        $config = Configure::read("test.key");
+        pr($config);
         if (!$path) {
             return $this->redirect('/');
         }
