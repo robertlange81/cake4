@@ -18,7 +18,8 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        $categories = $this->paginate($this->Categories, ['limit' => 1]);
+        $query = $this->Categories->find()->contain(["BlogPosts" => ['MetaFields']] );
+        $categories = $this->paginate($query, ['limit' => 1]);
 
         $this->set(compact('categories'));
     }
@@ -33,7 +34,7 @@ class CategoriesController extends AppController
     public function view($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => ['BlogPosts'],
+            'contain' => ['BlogPosts' => ['MetaFields']],
         ]);
 
         $this->set(compact('category'));

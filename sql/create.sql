@@ -1,7 +1,11 @@
+\about
+create DATABASE cake;
+
 USE cake;
 DROP TABLE IF EXISTS blog_posts_categories;
 DROP TABLE IF EXISTS blog_posts;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS meta_fields;
 
 CREATE TABLE categories (
     id INT(11) NOT NULL AUTO_INCREMENT,
@@ -27,7 +31,6 @@ CREATE TABLE blog_posts_categories (
    FOREIGN KEY (blog_post_id) REFERENCES blog_posts(id)
 );
 
-DROP TABLE IF EXISTS meta_fields;
 CREATE TABLE meta_fields (
    id INT(11) PRIMARY KEY AUTO_INCREMENT,
    meta_key VARCHAR(255) NOT NULL,
