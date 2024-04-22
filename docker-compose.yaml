@@ -1,22 +1,25 @@
 version: '3.8'
 services:
   cake4-web:
+    build: .
+    ports:
+      - "81:80"
+      - "9003:9003" # Xdebug Port
     environment:
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
+      PHP_IDE_CONFIG: "serverName=cake4-web"
       DATABASE_HOST: db
       DATABASE_PORT: 3306
       DATABASE_USER: root
       DATABASE_PASSWORD: root
       DATABASE_NAME: cake
-    build: .
-    ports:
-      - "81:80"
     volumes:
       - .:/var/www/html
     depends_on:
       - db
     networks:
       - backend
-
+      
   db:
     image: mysql:latest
     environment:
