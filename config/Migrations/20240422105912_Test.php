@@ -17,5 +17,7 @@ class Test extends AbstractMigration
         $testTable = $this->table("test");
         $testTable->addColumn('name', 'string');
         $testTable->create();
+
+        // $this->execute('DELETE FROM blog_posts');
     }
 }

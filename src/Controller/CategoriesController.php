@@ -34,8 +34,10 @@ class CategoriesController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($id = null, $otherParam = '')
     {
+        // http://localhost:8765/categories/view/1/other
+        pr($otherParam);
         $category = $this->Categories->get($id, [
             'contain' => ['BlogPosts' => ['MetaFields']],
         ]);
