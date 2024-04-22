@@ -27,7 +27,7 @@ CREATE TABLE blog_posts_categories (
    FOREIGN KEY (blog_post_id) REFERENCES blog_posts(id)
 );
 
-DROP TABLE meta_fields;
+DROP TABLE IF EXISTS meta_fields;
 CREATE TABLE meta_fields (
    id INT(11) PRIMARY KEY AUTO_INCREMENT,
    meta_key VARCHAR(255) NOT NULL,
