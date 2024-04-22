@@ -18,7 +18,9 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        $query = $this->Categories->find()->contain(["BlogPosts" => ['MetaFields']] );
+        $query = $this->Categories->find()
+        ->matching('BlogPosts')
+        ->contain(["BlogPosts" => ['MetaFields']] );
         $categories = $this->paginate($query, ['limit' => 1]);
 
         $this->set(compact('categories'));
