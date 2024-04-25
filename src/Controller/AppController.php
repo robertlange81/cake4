@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Psr\Log\LogLevel;
 
 /**
  * Application Controller
@@ -40,6 +41,9 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
+
+        // part of the log trait
+        $this->log('log test', LogLevel::INFO, 'robert');
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');

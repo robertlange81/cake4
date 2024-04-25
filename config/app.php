@@ -370,6 +370,13 @@ return [
             'scopes' => false,
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
+        'robert_scope' => [
+            'className' => FileLog::class,
+            'path' => LOGS,
+            'file' => 'robert_log',
+            'scopes' => ['robert'],
+            'levels' => [],
+        ],
         // To enable this dedicated query log, you need set your datasource's log flag to true
         'queries' => [
             'className' => FileLog::class,
