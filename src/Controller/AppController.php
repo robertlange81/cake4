@@ -47,6 +47,9 @@ class AppController extends Controller
         $this->log('log test', LogLevel::INFO, 'robert');
         Log::write('error', 'new error message', 'robert');
 
+        $request = $this->getRequest();
+        Log::write('info', print_r($request, true),'robert');
+
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
