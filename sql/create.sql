@@ -1,4 +1,3 @@
-\about
 create DATABASE cake;
 
 USE cake;
