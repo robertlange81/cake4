@@ -25,7 +25,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => env('SECURITY_SALT', 'aaaaa'),
     ],
 
     /*
@@ -36,30 +36,23 @@ return [
      */
     'Datasources' => [
         'default' => [
-            'host' => 'localhost',
-            /*
-             * CakePHP will use the default DB port based on the driver selected
-             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
-             * the following line and set the port accordingly
-             */
-            //'port' => 'non_standard_port_number',
-
-            'username' => 'my_app',
-            'password' => 'secret',
-
-            'database' => 'my_app',
-            /*
-             * If not using the default 'public' schema with the PostgreSQL driver
-             * set it here.
-             */
-            //'schema' => 'myapp',
-
-            /*
-             * You can use a DSN string to set the entire configuration
-             */
-            'url' => env('DATABASE_URL', null),
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Mysql',
+            'persistent' => false,
+            //'host' => 'db',  // für docker
+            'host' => '127.0.0.1',  // für win oder wsl
+            'port' => 3307,  // Der Standard-MySQL-Port
+            'username' => 'root',  // Der Benutzername, wie in Ihrer Docker-Umgebung definiert
+            'password' => 'root',  // Das Passwort, wie in Ihrer Docker-Umgebung definiert
+            'database' => 'cake',  // Der Datenbankname, wie in Ihrer Docker-Umgebung definiert
+            'encoding' => 'utf8mb4',  // Empfohlene Kodierung
+            'timezone' => 'UTC',  // Zeitzone nach Bedarf anpassen
+            'flags' => [],  // Zusätzliche Flags können hier nach Bedarf gesetzt werden
+            'cacheMetadata' => true,  // Metadaten cachen
+            'log' => true,  // Auf true setzen, um SQL-Logs in Entwicklungsumgebung zu aktivieren
+            'quoteIdentifiers' => false,  // Auf true setzen, wenn SQL-Reserved Words als Identifiers genutzt werden
+            'url' => env('DATABASE_URL', null),  // Für alternative Konfigurationen über Umgebungsvariablen
         ],
-
         /*
          * The test connection is used during the test suite.
          */
