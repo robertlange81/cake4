@@ -43,6 +43,11 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        $session = $this->getRequest()->getSession();
+        // $session->write('key test', 'value test');
+        $test = $session->read('key test');
+        //pr($test);
+
         // part of the log trait
         $this->log('log test', LogLevel::INFO, 'robert');
         Log::write('error', 'new error message', 'robert');
