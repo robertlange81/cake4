@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\View\JsonView;
+//use Cake\View\XmlView;
+
 /**
  * BlogPosts Controller
  *
@@ -11,6 +14,12 @@ namespace App\Controller;
  */
 class BlogPostsController extends AppController
 {
+    public function viewClasses(): array
+    {
+        // return [JsonView::class, XmlView::class];        
+        return [JsonView::class];        
+    }
+
     /**
      * Index method
      *
@@ -21,6 +30,7 @@ class BlogPostsController extends AppController
         $blogPosts = $this->paginate($this->BlogPosts);
 
         $this->set(compact('blogPosts'));
+        $this->viewBuilder()->setOption('serialize', 'blogPosts');
     }
 
     /**
