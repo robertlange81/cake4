@@ -38,6 +38,7 @@ class AppView extends View
     public function initialize(): void
     {
         $this->loadHelper("Form", [
+            "className"=>'MyForm',
             "templates"=>'app_form'
         ]);
     }
