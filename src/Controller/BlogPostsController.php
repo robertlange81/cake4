@@ -30,7 +30,7 @@ class BlogPostsController extends AppController
         $blogPosts = $this->paginate($this->BlogPosts);
 
         $this->set(compact('blogPosts'));
-        $this->viewBuilder()->setOption('serialize', 'blogPosts');
+        // $this->viewBuilder()->setOption('serialize', 'blogPosts');
     }
 
     /**
