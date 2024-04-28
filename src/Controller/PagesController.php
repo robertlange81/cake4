@@ -45,7 +45,7 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
-        // sleep(10);
+        sleep(10);
         $config = Configure::read("test.key");
         pr($config);
         if (!$path) {
