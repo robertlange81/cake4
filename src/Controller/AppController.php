@@ -44,8 +44,9 @@ class AppController extends Controller
         parent::initialize();
 
         $session = $this->getRequest()->getSession();
-        $session->write('key test', 'value test');
+        // $session->write('key test', 'value test');
         $test = $session->read('key test');
+        // session_write_close(); 
         pr($test);
 
         // part of the log trait

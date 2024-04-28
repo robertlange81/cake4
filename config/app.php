@@ -144,11 +144,12 @@ return [
             'duration' => '+1 years',
             'url' => env('CACHE_CAKEROUTES_URL', null),
         ],
+
         'session' => [
             'className' => \Cake\Cache\Engine\FileEngine::class,
             'path' => CACHE . 'session' . DS,
             'duration' => '+1 week'
-        ]
+        ],
     ],
 
     /*
