@@ -23,7 +23,10 @@
             <fieldset>
                 <legend><?= __('Edit Blog Post') ?></legend>
                 <?php
-                    echo $this->Form->control('name');
+                    echo $this->Form->control('name', [
+                        'customClass'=> 'robert ist klasse',
+                    ]
+                );
                     echo $this->Form->control('categories._ids', ['options' => $categories]);
                 ?>
             </fieldset>
